@@ -3,8 +3,7 @@ export function Acai(peq, med, grande, desc) {
 
         if (peq < 0 || med < 0 || grande < 0 || desc < 0) throw new Error("valor inválido")
         if (desc > 100) throw new Error("desconto inválido")
-        if (Number.isInteger(peq) || Math.floor(!med) || Math.floor(!grande)) throw new Error("valor invalido")
-        //if (parseInt(peq) != parseFloat(peq) || parseInt(med) != parseFloat(med) || parseInt(grande) != parseFloat(grande) ) throw new Error("valor inválido") 
+        if (parseInt(peq) != parseFloat(peq) || parseInt(med) != parseFloat(med) || parseInt(grande) != parseFloat(grande) ) throw new Error("valor inválido") 
 
         let total = (peq * 13.5) + (med * 15) + (grande * 17.5);
         let desconto = total * (desc / 100);
