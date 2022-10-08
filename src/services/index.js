@@ -34,12 +34,10 @@ export function sorvete(gramas) {
         if (gramas <= 0) throw new Error("Valor inválido")
 
         let r = 0;
-        if (gramas <= 0)
-            r = 'Peso Inválido';
-        else if (gramas < 1000)
-            r = `O Total a se pagar é: ${(3.50 * (gramas / 100)).toFixed(2)}`
+        if (gramas < 1000)
+            r = (3.50 * (gramas / 100)).toFixed(2)
         else
-            r = `O total a se pagar é: ${(3 * (gramas / 100)).toFixed(2)}`
+            r = (3 * (gramas / 100)).toFixed(2)
 
         return r;
     } catch (err) {

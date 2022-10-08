@@ -8,7 +8,11 @@ export default function Index(){
 
     function Preco () {
         const resp = sorvete(gramas);
-        setResposta(resp)
+        if (isNaN(resp))
+            setResposta(resp)
+        else 
+            setResposta(`O total a se pagar é R$ ${resp}`.replace('.', ','))
+        console.log(resposta)
     }
  
     return(
