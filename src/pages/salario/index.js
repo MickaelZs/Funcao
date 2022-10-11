@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Liquido } from "../../services"
 
 export default function Index(){
 
@@ -7,14 +8,12 @@ export default function Index(){
     const [desc, setDesc] = useState(0)
     const [resposta, setResposta] = useState()
 
-    function Liquido () {
-        try {
-            let b = salario*bonus/100;
-            let s = salario - desc + b;
-            setResposta(s); 
-        } catch (err) {
-            setResposta(err.message)
-        }
+    function salLiquido () {
+        const resp = Liquido(salario, bonus, desc);
+        if (isNaN(resp))
+            setResposta(resp)
+        else 
+            setResposta(`Serão necessárias ${resp.toFixed(1)} paradas`) 
     }
 
     return(
