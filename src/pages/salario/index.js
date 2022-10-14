@@ -13,7 +13,7 @@ export default function Index(){
         if (isNaN(resp))
             setResposta(resp)
         else 
-            setResposta(`Serão necessárias ${resp.toFixed(1)} paradas`) 
+            setResposta(`Seu salário líquido é de R$${resp.toFixed(2)}`.replace('.',',')) 
     }
 
     return(
@@ -22,7 +22,7 @@ export default function Index(){
             <p>Insira o salário <input type="number" value={salario} onChange={e => setSalario(e.target.value)} /> </p>
             <p>Insira o bônus <input type="number" value={bonus} onChange={e => setBonus(e.target.value)} /> </p>
             <p>Insira o desconto <input type="number" value={desc} onChange={e => setDesc(e.target.value)} /> </p>
-            <button onClick={Liquido}>Calcular</button>
+            <button onClick={salLiquido}>Calcular</button>
             <h2>{resposta}</h2>
         </div>
     )

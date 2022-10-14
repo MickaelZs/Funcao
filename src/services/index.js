@@ -99,3 +99,37 @@ export function Liquido(salario, bonus, desc) {
         return err.message;
     }
 }
+
+export function sitOrcamento(ganhos, gastos) {
+    try {
+        if (ganhos <= 0 || gastos <= 0) throw new Error("VALOR INVÁLIDO");
+
+        let x = "";
+        if (gastos <= 0.2 * ganhos) x = "Parabéns, está gerenciando bem o seu orçamento!"
+        if (gastos <= 0.5 * ganhos && gastos >= 0.21 * ganhos) x = "Muito bem, seus gastos não ultrapassam metade dos ganhos!"
+        if (gastos <= 0.8 * ganhos && gastos >= 0.51 * ganhos) x = "Atençao, melhor conter os gastos!"
+        if (gastos <= ganhos || gastos >= 0.81 * ganhos) x = "Cuidado, seu orçamento pode ficar comprometido!"
+        if (gastos > ganhos) x = "Orçamento comprometido! Hora de rever seus gastos!"
+
+        return x;
+    } catch (err) {
+        return err.message;
+    }
+}
+
+export function totalCompra (inteiras, meias, diaSemana, nacional) {
+    try {
+        if (parseInt(inteiras) != parseFloat(inteiras) || parseInt(meias) != parseFloat(meias)) throw new Error("valor inválido")
+        if (inteiras < 0 || meias < 0) throw new Error("Valor Inválido");
+        if (!isNaN(diaSemana)) throw new Error ("Dia da semana inválido")
+
+        let d = diaSemana.toLowerCase();
+        let x = (inteiras * 28.5) + (meias * 14.25);
+        if (nacional == true) x = (inteiras * 5) + (meias * 5);
+        else if (d == "quarta-feira") x = (inteiras * 14.25) + (meias * 14.25);
+        
+        return x;
+    } catch (err) {
+        return err.message;
+    }
+}
