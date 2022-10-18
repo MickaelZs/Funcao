@@ -133,3 +133,19 @@ export function totalCompra (inteiras, meias, diaSemana, nacional) {
         return err.message;
     }
 }
+
+export function Linha (colunas) {
+    try {
+
+        if (colunas <= 0) throw new Error("VALOR INVÁLIDO")
+
+        let array = [];
+        for (let i = 0; i < colunas; i++) {
+            array[i] = '*';
+        }
+        
+        return array;
+    } catch (err) {
+        return err.message;
+    }
+}
