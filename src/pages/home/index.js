@@ -21,6 +21,8 @@ export default function Index() {
                 </li>
                 <li>            <Link to='/compra'>compra</Link>
                 </li>
+                <li>            <Link to='/contar'>contar</Link>
+                </li>
             </ul>
 
         </main>
