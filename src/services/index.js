@@ -134,6 +134,22 @@ export function totalCompra (inteiras, meias, diaSemana, nacional) {
     }
 }
 
+export function contarAte(inicio,fim){
+    try {
+        if (inicio > fim) throw new Error("O VALOR INICIAL NÃO PODE SER MAIOR QUE O VALOR FINAL")
+
+        let array = []
+        for (let cont = inicio; cont <= fim; cont++) {
+            array = [...array,cont]
+        }
+        return array;
+    } catch (err) {
+        return err.message
+    }
+    
+    
+}
+
 export function Linha (colunas) {
     try {
 
@@ -147,5 +163,21 @@ export function Linha (colunas) {
         return array;
     } catch (err) {
         return err.message;
+    }
+}
+
+export function retangulo (base, altura) {
+    try {
+        let array = [];
+        for (let i = 0; i < altura; i++) {
+            array = [...array, []]
+            for (let cont = 0; cont < base; cont++) {
+                array[i].push('*');
+            }
+        }
+
+        return array;
+    } catch (err) {
+        return err.message
     }
 }
