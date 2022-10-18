@@ -10,6 +10,9 @@ import Salario from './pages/salario'
 import Abastecimento from './pages/abastecimento'
 import Orcamento from './pages/orcamento/index.js'
 import Compra from './pages/Compra/index.js'
+import Contar from './pages/contar'
+import Linha from './pages/linha'
+import Retangulo from './pages/retangulo'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,7 +28,10 @@ root.render(
         <Route path='/abastecimento' element={<Abastecimento />} />
         <Route path='/salario' element={<Salario />} /> 
         <Route path='/orcamento' element={<Orcamento />} />     
-        <Route path='/compra' element={<Compra />} /> 
+        <Route path='/compra' element={<Compra />} />
+        <Route path='/contar' element={<Contar />} />
+        <Route path='/linha' element={<Linha />} />
+        <Route path='/retangulo' element={<Retangulo />} /> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
