@@ -13,6 +13,7 @@ import Compra from './pages/Compra/index.js'
 import Contar from './pages/contar'
 import Linha from './pages/linha'
 import Retangulo from './pages/retangulo'
+import Cafe from './pages/Cafe'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -32,6 +33,7 @@ root.render(
         <Route path='/contar' element={<Contar />} />
         <Route path='/linha' element={<Linha />} />
         <Route path='/retangulo' element={<Retangulo />} /> 
+        <Route path='/cafe' element={<Cafe />} /> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

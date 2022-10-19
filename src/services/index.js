@@ -172,9 +172,10 @@ export function retangulo (base, altura) {
         for (let i = 0; i < altura; i++) {
             array = [...array, []]
             for (let cont = 0; cont < base; cont++) {
-                array[i].push('*');
+                array[i].push('°');
             }
         }
+      
 
         return array;
     } catch (err) {
@@ -184,11 +185,11 @@ export function retangulo (base, altura) {
 
 export function queroCafe (N, L, D) {
     try {
-        let m = N*D
-        let b = m/1000
-        if (Number.isInteger(b) === true ) return b;
-        else return Math.floor(b) + L;
-        
+        let a = N*D;
+        let b = a/1000;
+        let c = b/L;
+        let d = Math.ceil(c)*L
+        return d;
     } catch (err) {
         return err.message
     }

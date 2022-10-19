@@ -27,6 +27,8 @@ export default function Index() {
                 </li>
                 <li>            <Link to='/retangulo'>Retangulo</Link>
                 </li>
+                <li>            <Link to='/cafe'>Cafe</Link>
+                </li>
             </ul>
 
         </main>
