@@ -181,3 +181,15 @@ export function retangulo (base, altura) {
         return err.message
     }
 }
+
+export function queroCafe (N, L, D) {
+    try {
+        let m = N*D
+        let b = m/1000
+        if (Number.isInteger(b) === true ) return b;
+        else return Math.floor(b) + L;
+        
+    } catch (err) {
+        return err.message
+    }
+}
