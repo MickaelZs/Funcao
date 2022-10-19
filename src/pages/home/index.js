@@ -23,6 +23,10 @@ export default function Index() {
                 </li>
                 <li>            <Link to='/contar'>contar</Link>
                 </li>
+                <li>            <Link to='/linha'>Linha</Link>
+                </li>
+                <li>            <Link to='/retangulo'>Retangulo</Link>
+                </li>
             </ul>
 
         </main>
