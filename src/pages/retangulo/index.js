@@ -1,16 +1,18 @@
 import { useState } from "react"
-import { retangulo } from "../../services";
+import { retanguloBola, retanguloAst } from "../../services";
 
 export default function Index(){
 
     const [base, setBase] = useState();
     const [altura, setAltura] = useState();
-    const [resposta, setResposta] = useState([]);
+    const [respostaBola, setRespostaBola] = useState([]);
+    const [respostaAst, setRespostaAst] = useState([]);
 
     function Click() {
-        const resp = retangulo(base, altura);
-        setResposta(resp);
-        console.log(resp);
+        const bola = retanguloBola(base, altura);
+        const ast = retanguloAst(base, altura);
+        setRespostaBola(bola);
+        setRespostaAst(ast);
     }
 
     return(
@@ -20,7 +22,13 @@ export default function Index(){
             <p>Insira a altura: <input type="number" value={altura} onChange={e=> setAltura(e.target.value)} /></p>
             <button onClick={Click}>Gerar Retângulo</button>
             
-            {resposta.map(item => 
+            {respostaBola.map(item => 
+                <div>
+                    {item}
+                </div>
+                )}
+
+            {respostaAst.map(item => 
                 <div>
                     {item}
                 </div>

@@ -166,13 +166,30 @@ export function Linha (colunas) {
     }
 }
 
-export function retangulo (base, altura) {
+export function retanguloBola (base, altura) {
     try {
         let array = [];
         for (let i = 0; i < altura; i++) {
             array = [...array, []]
             for (let cont = 0; cont < base; cont++) {
                 array[i].push('°');
+            }
+        }
+      
+
+        return array;
+    } catch (err) {
+        return err.message
+    }
+}
+
+export function retanguloAst (base, altura) {
+    try {
+        let array = [];
+        for (let i = 0; i < altura; i++) {
+            array = [...array, []]
+            for (let cont = 0; cont < base; cont++) {
+                array[i].push('*');
             }
         }
       
