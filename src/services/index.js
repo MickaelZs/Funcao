@@ -211,3 +211,18 @@ export function queroCafe (N, L, D) {
         return err.message
     }
 }
+
+export function jurosCompostos (entrada, capital, taxa, periodo) {
+    try {
+        let c = capital - entrada;
+        let m = c*Math.pow(1 + taxa/100, periodo);
+        let j = m - c;
+        let p = m/(periodo*12);
+        let array = `${j.toFixed(2).replace('.', ',')}, ${p.toFixed(2).replace('.', ',')}, ${m.toFixed(2).replace('.', ',')}`;
+
+        return array;
+        
+    } catch (err) {
+        return err.message
+    }
+}
