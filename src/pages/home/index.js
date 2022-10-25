@@ -31,6 +31,8 @@ export default function Index() {
                 </li>
                 <li>            <Link to='/juros'>Juros</Link>
                 </li>
+                <li>            <Link to='/aluno'>Aluno</Link>
+                </li>
             </ul>
 
         </main>

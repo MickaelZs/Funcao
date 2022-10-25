@@ -117,40 +117,40 @@ export function sitOrcamento(ganhos, gastos) {
     }
 }
 
-export function totalCompra (inteiras, meias, diaSemana, nacional) {
+export function totalCompra(inteiras, meias, diaSemana, nacional) {
     try {
         if (parseInt(inteiras) != parseFloat(inteiras) || parseInt(meias) != parseFloat(meias)) throw new Error("valor inválido")
         if (inteiras < 0 || meias < 0) throw new Error("Valor Inválido");
-        if (!isNaN(diaSemana)) throw new Error ("Dia da semana inválido")
+        if (!isNaN(diaSemana)) throw new Error("Dia da semana inválido")
 
         let d = diaSemana.toLowerCase();
         let x = (inteiras * 28.5) + (meias * 14.25);
         if (nacional == true) x = (inteiras * 5) + (meias * 5);
         else if (d == "quarta-feira") x = (inteiras * 14.25) + (meias * 14.25);
-        
+
         return x;
     } catch (err) {
         return err.message;
     }
 }
 
-export function contarAte(inicio,fim){
+export function contarAte(inicio, fim) {
     try {
         if (inicio > fim) throw new Error("O VALOR INICIAL NÃO PODE SER MAIOR QUE O VALOR FINAL")
 
         let array = []
         for (let cont = inicio; cont <= fim; cont++) {
-            array = [...array,cont]
+            array = [...array, cont]
         }
         return array;
     } catch (err) {
         return err.message
     }
-    
-    
+
+
 }
 
-export function Linha (colunas) {
+export function Linha(colunas) {
     try {
 
         if (colunas <= 0) throw new Error("VALOR INVÁLIDO")
@@ -159,14 +159,14 @@ export function Linha (colunas) {
         for (let i = 0; i < colunas; i++) {
             array[i] = '*';
         }
-        
+
         return array;
     } catch (err) {
         return err.message;
     }
 }
 
-export function retanguloBola (base, altura) {
+export function retanguloBola(base, altura) {
     try {
         let array = [];
         for (let i = 0; i < altura; i++) {
@@ -175,7 +175,7 @@ export function retanguloBola (base, altura) {
                 array[i].push('°');
             }
         }
-      
+
 
         return array;
     } catch (err) {
@@ -183,7 +183,7 @@ export function retanguloBola (base, altura) {
     }
 }
 
-export function retanguloAst (base, altura) {
+export function retanguloAst(base, altura) {
     try {
         let array = [];
         for (let i = 0; i < altura; i++) {
@@ -192,7 +192,7 @@ export function retanguloAst (base, altura) {
                 array[i].push('*');
             }
         }
-      
+
 
         return array;
     } catch (err) {
@@ -200,19 +200,34 @@ export function retanguloAst (base, altura) {
     }
 }
 
-export function queroCafe (N, L, D) {
+export function queroCafe(N, L, D) {
     try {
-        let a = N*D;
-        let b = a/1000;
-        let c = b/L;
-        let d = Math.ceil(c)*L
+        let a = N * D;
+        let b = a / 1000;
+        let c = b / L;
+        let d = Math.ceil(c) * L
         return d;
     } catch (err) {
         return err.message
     }
 }
 
-export function Alunos (num) {
+export function jurosCompostos(entrada, capital, taxa, periodo) {
+    try {
+        let c = capital - entrada;
+        let m = c * Math.pow(1 + taxa / 100, periodo);
+        let j = m - c;
+        let p = m / (periodo * 12);
+        let array = `${j.toFixed(2).replace('.', ',')}, ${p.toFixed(2).replace('.', ',')}, ${m.toFixed(2).replace('.', ',')}`;
+
+        return array;
+
+    } catch (err) {
+        return err.message
+    }
+}
+
+export function Alunos(num) {
     try {
 
         let x = [];
@@ -222,20 +237,5 @@ export function Alunos (num) {
         return x;
     } catch (err) {
         return err.message;
-}
-}
-
-export function jurosCompostos (entrada, capital, taxa, periodo) {
-    try {
-        let c = capital - entrada;
-        let m = c*Math.pow(1 + taxa/100, periodo);
-        let j = m - c;
-        let p = m/(periodo*12);
-        let array = `${j.toFixed(2).replace('.', ',')}, ${p.toFixed(2).replace('.', ',')}, ${m.toFixed(2).replace('.', ',')}`;
-
-        return array;
-        
-    } catch (err) {
-        return err.message
     }
 }
