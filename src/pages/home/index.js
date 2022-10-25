@@ -29,6 +29,8 @@ export default function Index() {
                 </li>
                 <li>            <Link to='/cafe'>Cafe</Link>
                 </li>
+                <li>            <Link to='/juros'>Juros</Link>
+                </li>
             </ul>
 
         </main>

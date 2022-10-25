@@ -14,6 +14,7 @@ import Contar from './pages/contar'
 import Linha from './pages/linha'
 import Retangulo from './pages/retangulo'
 import Cafe from './pages/Cafe'
+import Juros from './pages/Juros'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,6 +35,7 @@ root.render(
         <Route path='/linha' element={<Linha />} />
         <Route path='/retangulo' element={<Retangulo />} /> 
         <Route path='/cafe' element={<Cafe />} /> 
+        <Route path='/juros' element={<Juros />} /> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
