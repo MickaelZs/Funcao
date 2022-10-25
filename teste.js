@@ -1,13 +1,14 @@
-function queroCafe (N, L, D) {
+function Alunos (num) {
     try {
-        let a = N*D;
-        let b = a/1000;
-        let c = b/L;
-        let d = Math.ceil(c)*L
-        return d;
+
+        let x = [];
+        for (let i = 1; i <= num; i++) {
+            x = [...x, i];
+        }
+        return x;
     } catch (err) {
-        return err.message
+        return err.message;
     }
 }
 
-console.log(queroCafe(4, 12, 11000));
+console.log(Alunos(5));
