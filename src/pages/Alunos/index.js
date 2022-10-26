@@ -1,42 +1,66 @@
-import { useState } from "react";
-import { Alunos } from "../../services";
-import { calcularMedia } from "../../services/continhas.js"
+import { useState } from 'react';
+import { calcMaior, calcMedia, calcMenor, criarArray } from '../../services/index.js';
 
 export default function Index() {
 
-    const [qtdAluno, setQtdAluno] = useState(0);
-    const [alunos, setAlunos] = useState([]);
-    const [notaAluno, setNotaAluno] = useState([]);
-    const [res, setRes] = useState()
-    let array = []
-    
-    function gerarAlunos() {
-        const resp = Alunos(qtdAluno);
-        setAlunos(resp)
-    }
+    const [qtd, setQtd] = useState(0);
+  const [notasAlunos, setNotasAlunos] = useState([])
 
-    
-    console.log(notaAluno);
+  const [media, setMedia] = useState(0);
+  const [maior, setMaior] = useState(0);
+  const [menor, setMenor] = useState(0);
 
-    return(
-        <main>
-            <h1>ALunos</h1>
-            <p>Quantidade de alunos: <input type="number" value={qtdAluno} onChange={e=> setQtdAluno(e.target.value)} /> <button onClick={gerarAlunos}>OK</button> </p>
-            {alunos.map((item, index) => (
-                <div>
-                    <p>Aluno {item} <input type="number" value={notaAluno[index]} onChange={e => {
-                          
-                            array[index] = Number(e.target.value)
-                           console.log(array)
-                           
-                            
-                    }} /></p>
-                </div>
-            ))
 
-            }
-            <button onClick={() => setRes(calcularMedia(array ))}>Calcular</button>
-            {res}
-        </main>
-    );
+  function okQtd() {
+    const x = criarArray(qtd);
+    setNotasAlunos(x);
+  }
+
+  function alterar(pos, novoValor) {
+    notasAlunos[pos] = Number(novoValor);
+    setNotasAlunos([...notasAlunos]);
+  }
+
+  function calcular() {
+    const a = calcMedia(notasAlunos);
+    const b = calcMaior(notasAlunos);
+    const c = calcMenor(notasAlunos);
+
+    setMedia(a);
+    setMaior(b);
+    setMenor(c);
+  }
+
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <div>
+          Qtd. Alunos: <input type='text' value={qtd} onChange={e => setQtd(e.target.value)} />
+          <button onClick={okQtd}> ok </button>
+        </div>
+
+        {notasAlunos.map((item, pos) => 
+          <div>
+            Aluno {pos+1}: <input type='text' value={notasAlunos[pos]} onChange={e => alterar(pos, e.target.value)} />
+          </div>  
+        )}
+
+
+        <button onClick={calcular}> Calcular </button>
+        
+        <div>
+          Média: {media}
+        </div>
+        <div>
+          Maior: {maior}
+        </div>
+        <div>
+          Menor: {menor}
+        </div>
+        
+      </header>
+    </div>
+  );
 }
